@@ -35,7 +35,18 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - name: TestPriject
+      - name: build
+        run: |
+          cd grep
+          go build cmd/grep/main.go
+  
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: TestProject
         run: |
           cd grep
           go test ./...
